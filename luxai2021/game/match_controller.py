@@ -160,6 +160,7 @@ class MatchController:
                 if action.is_valid(self.game, self.action_buffer, self.accumulated_stats):
                     # Add the action
                     self.action_buffer.append(action)
+                    return action_buffer[-1]
                     self.accumulated_stats = action.commit_action_update_stats(self.game, self.accumulated_stats)
                 else:
                     #print(f'action is invalid {action} turn {self.game.state["turn"]}: {vars(action)}', file=sys.stderr)
